@@ -13,7 +13,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 30%;
+  max-width: 25%;
   margin: 0 auto;
   padding: 20px;
   background-color: #ffffff;
@@ -36,17 +36,16 @@
 
 .input-label {
   color: black;
-  font-size: 20px;
-  margin-right: 10px;
+  font-size: 1.3rem;
+  margin-right: 0.62rem; 
   font-weight: bold;
 }
 
 .input-field {
-  padding: 5px;
-  width: 250px;
-  font-size: 14px;
+  padding: 0.3rem; 
+  width: 12vw;
+  font-size: 0.87rem;
 }
-
 .submit-button {
   padding: 10px 20px;
   background-color: #4caf50;
@@ -92,19 +91,19 @@
 .todo-detail {
   font-size: 14px;
   color: #030000;
-  margin: 4px 0; /* Adds space between details */
-  text-align: center; /* Centers text inside the div */
+  margin: 4px 0; 
+  text-align: center; 
 }
 
 .todo-detail.title {
   font-size: 25px;
   font-weight: bold;
-  color: #2c3e50; /* Darker color for titles */
+  color: #2c3e50; 
 }
 
 .todo-detail.description {
   font-size: 16px;
-  color: #34495e; /* Subtle color for descriptions */
+  color: #34495e;
 }
 
 .todo-detail.addedon,
@@ -112,7 +111,7 @@
   font-size: 15px;
   font-weight: 600;
   font-style: italic;
-  color: #7f8c8d; /* Lighter color for metadata */
+  color: #7f8c8d; 
 }
 
 .todo-detail.dedline{
@@ -120,7 +119,7 @@
 }
 .todo-detail.username {
   font-weight: bold;
-  color: #000000; /* A distinct color for usernames */
+  color: #000000; 
 }
 
 .todo-actions {
@@ -175,4 +174,38 @@
   text-align: center;
   font-size: 18px;
   color: #888;
+}
+
+
+
+.footer {
+  background-color: #49494a;
+  color: white;
+  padding: 15px 0;
+  text-align: center;
+  width: 100%;
+  margin: 0;
+  margin-top: 30px;
+  margin-bottom: 0px;
+  position: relative;
+}
+
+.social-media {
+  margin-bottom: 10px;
+}
+
+.social-media a {
+  margin: 0 10px;
+  color: white;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.social-media a:hover {
+  color: #201f20;
+}
+
+.copyright {
+  font-size: 1rem;
+  margin-top: 10px;
 }
