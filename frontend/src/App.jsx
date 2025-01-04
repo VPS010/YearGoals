@@ -38,6 +38,13 @@ function App() {
       .then((result) => {
         setTodos((todos) => [...todos, result.data]);
         console.log("Data sent");
+        setTask({
+          username: "",
+          title: "",
+          description: "",
+          dedline: "",
+          completed: false,
+        });
       })
       .catch((e) => {
         console.log(e);
@@ -78,6 +85,7 @@ function App() {
             type="text"
             name="username"
             id="username"
+            value={task.username}
             placeholder="Username"
             onChange={TaskHandle}
             className="input-field"
@@ -89,6 +97,7 @@ function App() {
           <input
             type="text"
             name="title"
+            value={task.title}
             id="title"
             placeholder="Goal Title"
             onChange={TaskHandle}
@@ -101,6 +110,7 @@ function App() {
           <input
             type="text"
             name="description"
+            value={task.description}
             id="description"
             placeholder="Goal Description"
             onChange={TaskHandle}
@@ -113,6 +123,7 @@ function App() {
           <input
             type="date"
             name="dedline"
+            value={task.dedline}
             id="dedline"
             onChange={TaskHandle}
             className="input-field"

@@ -7,6 +7,10 @@ const cors = require('cors')
 app.use(express.json());
 app.use(cors());
 
+app.get("/",(req,res)=>{
+  res.send("Hello Yup server is UP!!!");
+})
+
 app.get("/goals", async (req, res) => {
     try {
         const goallist = await goals.find({});
