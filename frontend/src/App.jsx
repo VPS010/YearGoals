@@ -32,7 +32,7 @@ function App() {
     axios
       .post("http://localhost:3000/goals/add", task)
       .then((result) => {
-        location.reload();
+        setTodos((todos) => [...todos, result.data]);
         console.log("Data sent");
       })
       .catch((e) => {
@@ -44,7 +44,11 @@ function App() {
     axios
       .put("http://localhost:3000/goals/" + id)
       .then((result) => {
-        location.reload();
+        setTodos((prevTodos) =>
+          prevTodos.map((todo) =>
+            todo._id === id ? { ...todo, completed: !todo.completed } : todo
+          )
+        );
         console.log("Done" + id);
       })
       .catch((e) => console.log(e));
@@ -53,9 +57,9 @@ function App() {
   const DeleteHandler = (id) => {
     axios
       .delete("http://localhost:3000/goals/" + id)
-      .then((result) => {
-        location.reload();
-        console.log("deleted");
+      .then(() => {
+        setTodos((prevTodos) => prevTodos.filter((todo) => todo._id !== id));
+        console.log("Deleted");
       })
       .catch((e) => console.log(e));
   };
@@ -65,9 +69,7 @@ function App() {
       <h1 className="Heading">YearGoals</h1>
       <div className="form">
         <div className="input-group">
-          <label className="input-label">
-            Username:
-          </label>
+          <label className="input-label">Username:</label>
           <input
             type="text"
             name="username"
@@ -79,9 +81,7 @@ function App() {
         </div>
 
         <div className="input-group">
-          <label className="input-label">
-            Goal Title:
-          </label>
+          <label className="input-label">Goal Title:</label>
           <input
             type="text"
             name="title"
@@ -93,9 +93,7 @@ function App() {
         </div>
 
         <div className="input-group">
-          <label className="input-label">
-          Description:
-          </label>
+          <label className="input-label">Description:</label>
           <input
             type="text"
             name="description"
@@ -107,9 +105,7 @@ function App() {
         </div>
 
         <div className="input-group">
-          <label  className="input-label">
-            Deadline:
-          </label>
+          <label className="input-label">Deadline:</label>
           <input
             type="date"
             name="dedline"
@@ -142,11 +138,14 @@ function App() {
               <div className="todo-detail username">{todo.username}</div>
               <div className="todo-actions">
                 <button
-                  className={`${todo.completed? "incomplete-button":"completed-button"}`}
+                  className={`${
+                    todo.completed ? "incomplete-button" : "completed-button"
+                  }`}
                   onClick={() => DoneHandler(todo._id)}
                 >
-                 {`${todo.completed? "Mark InComplete":"Completed"}`}
+                  {`${todo.completed ? "Mark InComplete" : "Completed"}`}
                 </button>
+                <button>Edit</button>
                 <button
                   className="delete-button"
                   onClick={() => DeleteHandler(todo._id)}
