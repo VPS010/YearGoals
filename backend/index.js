@@ -22,17 +22,15 @@ app.post("/goals/add", createValidation, async (req, res) => {
     const goal = req.body;
 
     try {
-        await goals.create({
+       const newtask= await goals.create({
             username: goal.username,
-            title: goal.title,
+            title: goal.title.toUpperCase(),
             description: goal.description,
             dedline: goal.dedline,
             completed: false
         });
 
-        res.json({
-            msg: "Goal added successfully"
-        });
+        res.json(newtask);
     } catch (e) {
         console.log(e);
         res.status(500).json({ msg: "An error occurred while adding the goal." });

@@ -29,6 +29,10 @@ function App() {
   }, []);
 
   const CreateTask = () => {
+    if (!task.username || !task.title || !task.description || !task.dedline) {
+      alert("All fields are required.");
+      return;
+    }
     axios
       .post("http://localhost:3000/goals/add", task)
       .then((result) => {
@@ -133,8 +137,8 @@ function App() {
             >
               <div className="todo-detail title">{todo.title}</div>
               <div className="todo-detail description">{todo.description}</div>
-              <div className="todo-detail addedon">{todo.addedon}</div>
-              <div className="todo-detail dedline">{todo.dedline}</div>
+              <div className="todo-detail addedon">Added on: {todo.addedon}</div>
+              <div className="todo-detail dedline">Deadline: {todo.dedline}</div>
               <div className="todo-detail username">{todo.username}</div>
               <div className="todo-actions">
                 <button
