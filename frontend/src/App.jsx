@@ -102,7 +102,7 @@ function App() {
 
   const DeleteHandler = (id) => {
     axios
-      .delete("http://localhost:3000/goals/" + id)
+      .delete("https://year-goals-lime.vercel.app/goals/" + id)
       .then(() => {
         setTodos((prevTodos) => prevTodos.filter((todo) => todo._id !== id));
         console.log("Deleted");
