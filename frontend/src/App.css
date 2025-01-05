@@ -4,9 +4,40 @@
   text-align: center;
 }
 
-.Heading{
-  font-size: 50px;
+body {
+  background-image: url("./assets/wallpaperflare.com_wallpaper.jpg");
+  background-size: cover;
+  background-position: bottom;
+  background-attachment: fixed;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  color: white;
 }
+
+.Heading {
+  font-size: 50px;
+  padding: 0;
+  margin: 0;
+}
+
+.tagline1 {
+  font-size: 35px;
+  margin: 0;
+  font-weight: 600;
+  color: #e76427;
+  padding: 0;
+}
+
+.tagline2 {
+  font-size: 25px;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 10px;
+  color: #f42626;
+  font-weight: 400;
+}
+
 .form {
   display: flex;
   flex-direction: column;
@@ -16,7 +47,7 @@
   max-width: 25%;
   margin: auto;
   margin-bottom: 20px;
-  padding: 20px;
+  padding: 15px;
   background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -38,12 +69,12 @@
 .input-label {
   color: black;
   font-size: 1.3rem;
-  margin-right: 0.62rem; 
+  margin-right: 0.62rem;
   font-weight: bold;
 }
 
 .input-field {
-  padding: 0.3rem; 
+  padding: 0.3rem;
   width: 12vw;
   font-size: 0.87rem;
 }
@@ -73,17 +104,16 @@
   gap: 10px;
 }
 
-
 .todo-item {
   background-color: #fff;
   padding: 15px;
   margin: 10px;
   border-radius: 8px;
-  box-shadow: 6px 6px 5px rgba(144, 141, 141, 0.3);
+  box-shadow: 6px 6px 5px rgba(0, 0, 0, 0.404);
   color: black;
-  width: 300px; 
-  flex: 0 0 auto; 
-  overflow: hidden; 
+  width: 300px;
+  flex: 0 0 auto;
+  overflow: hidden;
   justify-content: center;
   display: flex;
   flex-direction: column;
@@ -92,14 +122,14 @@
 .todo-detail {
   font-size: 14px;
   color: #030000;
-  margin: 4px 0; 
-  text-align: center; 
+  margin: 4px 0;
+  text-align: center;
 }
 
 .todo-detail.title {
   font-size: 25px;
   font-weight: bold;
-  color: #2c3e50; 
+  color: #2c3e50;
 }
 
 .todo-detail.description {
@@ -107,23 +137,23 @@
   color: #34495e;
 }
 
-.todo-detail.addedon{
+.todo-detail.addedon {
   font-size: 15px;
   font-weight: 600;
-  color: #7f8c8d; 
+  color: #7f8c8d;
 }
 .todo-detail.dedline {
   font-size: 15px;
   font-weight: 750;
-  color: #7f8c8d; 
+  color: #7f8c8d;
 }
 
-.todo-detail.dedline{
+.todo-detail.dedline {
   color: black;
 }
 .todo-detail.username {
   font-weight: bold;
-  color: #000000; 
+  color: #000000;
 }
 
 .todo-actions {
@@ -131,7 +161,6 @@
   justify-content: space-between;
   margin-top: 10px;
 }
-
 
 .edit-button {
   background-color: #4caf50;
@@ -148,7 +177,6 @@
   background-color: #45a049;
 }
 
-
 .completed-button,
 .delete-button {
   padding: 8px 15px;
@@ -157,12 +185,12 @@
   cursor: pointer;
 }
 
-.incomplete-button{
+.incomplete-button {
   padding: 8px 15px;
   border-radius: 4px;
   font-size: 14px;
   cursor: pointer;
-  background-color: white ;
+  background-color: white;
   color: #2196f3;
   border: none;
 }
@@ -173,7 +201,7 @@
   border: none;
 }
 
-.Completed{
+.Completed {
   background-color: rgb(117, 242, 127);
 }
 
@@ -197,9 +225,8 @@
   color: #888;
 }
 
-
-
 .footer {
+  opacity: 0.9;
   background-color: #49494a;
   color: white;
   padding: 15px 0;
@@ -209,6 +236,7 @@
   margin-top: 30px;
   margin-bottom: 0px;
   position: relative;
+  bottom: 0px;
 }
 
 .social-media {

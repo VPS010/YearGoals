@@ -78,6 +78,10 @@ function App() {
   };
 
   const EditTask = (id) => {
+    if (!task.username || !task.title || !task.description || !task.dedline) {
+      alert("All fields are required.");
+      return;
+    }
     axios
       .put("http://localhost:3000/goals/edit/" + id, task)
       .then((result) => {
@@ -109,6 +113,8 @@ function App() {
   return (
     <>
       <h1 className="Heading">YearGoals</h1>
+      <p className="tagline1">Shout Your Goals to the World – Let's Make It Happen Together!</p>
+      <p className="tagline2">No Turning Back,The World is Watching!</p>
       {/* form */}
       <div className="form">
         <div className="input-group">
@@ -187,7 +193,7 @@ function App() {
                 Added on: {todo.addedon}
               </div>
               <div className="todo-detail dedline">
-                Deadline: {todo.dedline}
+                Deadline: {new Date(todo.dedline).toISOString().split('T')[0]}
               </div>
               <div className="todo-detail username">{todo.username}</div>
               <div className="todo-actions">
@@ -199,7 +205,12 @@ function App() {
                 >
                   {`${todo.completed ? "Mark InComplete" : "Completed"}`}
                 </button>
-                <button className="edit-button" onClick={() => EditHandler(todo._id)}>Edit</button>
+                <button
+                  className="edit-button"
+                  onClick={() => EditHandler(todo._id)}
+                >
+                  Edit
+                </button>
                 <button
                   className="delete-button"
                   onClick={() => DeleteHandler(todo._id)}

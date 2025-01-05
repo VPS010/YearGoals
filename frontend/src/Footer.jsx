@@ -19,7 +19,7 @@ const Footer = () => {
         </a>
       </div>
       <div className="copyright">
-        &copy; 2025 Made with <span className="heart">🤍</span> by Vinay
+        &copy; 2025 Made with <span className="heart">❤️</span> by Vinay
       </div>
     </footer>
   );
