@@ -92,6 +92,27 @@ body {
   background-color: #45a049;
 }
 
+@media (max-width: 480px) {
+  .form {
+    max-width: 75%; 
+    padding: 10px;
+  }
+
+  .input-label {
+    font-size: 1.2rem;
+  }
+
+  .input-field {
+    font-size: 0.9rem;
+    width: 35vw; 
+  }
+
+  .submit-button {
+    font-size: 15px;
+  }
+}
+
+
 .todo-list {
   margin-top: 30px;
   justify-content: center;
