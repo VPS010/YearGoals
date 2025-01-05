@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
-const mongoURI = process.env.MONGO_URI;
-mongoose.connect(mongoURI);
+const mongoURL= process.env.MONGO_URI;
+mongoose.connect(mongoURL)
 
 const goalSchema = new mongoose.Schema({
     username:String,
