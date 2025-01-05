@@ -1,6 +1,6 @@
 # YearGoals
 
-**YearGoals** is a web platform that allows users to share and track their yearly goals. It enables individuals to view others' goals, get inspired, and stay motivated by making their own goals public or private. The app provides an engaging way to set, update, and achieve personal objectives in a supportive community.
+**YearGoals** is a web platform that allows users to share and track their yearly goals. It enables individuals to view others' goals, get inspired, and stay motivated by making their own goals public. The app provides an engaging way to set, update, and achieve personal objectives in a supportive community.
 
 ## Features
 
