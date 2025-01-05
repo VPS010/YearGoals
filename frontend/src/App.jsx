@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import "./App.css";
 import axios from "axios";
 import Footer from "./Footer";
@@ -12,6 +12,7 @@ function App() {
     dedline: "",
     completed: false,
   });
+  const targetRef = useRef(null);
 
   const TaskHandle = (e) => {
     const { name, value } = e.target;
@@ -66,6 +67,8 @@ function App() {
       .catch((e) => console.log(e));
   };
 
+
+
   const EditHandler = (id) => {
     const task = todos.find((todo) => todo._id === id);
     setTask({
@@ -75,6 +78,7 @@ function App() {
       description: task.description,
       completed: false,
     });
+    targetRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   const EditTask = (id) => {
@@ -112,11 +116,11 @@ function App() {
 
   return (
     <>
-      <h1 className="Heading">YearGoals</h1>
+      <h1 className="Heading" ref={targetRef}>YearGoals</h1>
       <p className="tagline1">Shout Your Goals to the World – Let's Make It Happen Together!</p>
       <p className="tagline2">No Turning Back,The World is Watching!</p>
       {/* form */}
-      <div className="form">
+      <div className="form" >
         <div className="input-group">
           <label className="input-label">Username:</label>
           <input

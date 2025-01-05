@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
-mongoose.connect("mongodb+srv://vinayprakashsenapati01:n3rXnqOq2kSFuBPp@cluster0.bmadf.mongodb.net/yeargoals");
+const mongoURI = process.env.MONGO_URI;
+mongoose.connect(mongoURI);
 
 const goalSchema = new mongoose.Schema({
     username:String,

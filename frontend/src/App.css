@@ -94,7 +94,7 @@ body {
 
 @media (max-width: 480px) {
   .form {
-    max-width: 75%; 
+    max-width: 80%;
     padding: 10px;
   }
 
