@@ -24,7 +24,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/goals/")
+      .get("https://year-goals-lime.vercel.app/goals/")
       .then((result) => setTodos(result.data))
       .catch((e) => console.log(e));
   }, []);
@@ -35,7 +35,7 @@ function App() {
       return;
     }
     axios
-      .post("http://localhost:3000/goals/add", task)
+      .post("https://year-goals-lime.vercel.app/goals/add", task)
       .then((result) => {
         setTodos((todos) => [...todos, result.data]);
         console.log("Data sent");
@@ -54,7 +54,7 @@ function App() {
 
   const DoneHandler = (id) => {
     axios
-      .put("http://localhost:3000/goals/" + id)
+      .put("https://year-goals-lime.vercel.app/goals/" + id)
       .then((result) => {
         setTodos((prevTodos) =>
           prevTodos.map((todo) =>
@@ -83,7 +83,7 @@ function App() {
       return;
     }
     axios
-      .put("http://localhost:3000/goals/edit/" + id, task)
+      .put("https://year-goals-lime.vercel.app/goals/edit/" + id, task)
       .then((result) => {
         setTodos((Todos) =>
           Todos.map((todo) => (todo._id === id ? { ...todo, ...task } : todo))
