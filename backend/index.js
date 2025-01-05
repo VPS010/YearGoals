@@ -43,14 +43,15 @@ app.post("/goals/add", createValidation, async (req, res) => {
 
 
 
-app.put("/goals/edit", createValidation, async (req, res) => {
+app.put("/goals/edit/:id", createValidation, async (req, res) => {
+    const id= req.params.id;
     const goal = req.body;
-    if (!goal.id) {
+    if (!id) {
         return res.status(400).json({ msg: "Goal ID is required" });
     }
-    try {
+    try{
         await goals.updateOne({
-            _id: goal.id
+            _id:id
         }, {
             username: goal.username,
             title: goal.title,

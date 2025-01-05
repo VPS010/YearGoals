@@ -66,6 +66,36 @@ function App() {
       .catch((e) => console.log(e));
   };
 
+  const EditHandler = (id) => {
+    const task = todos.find((todo) => todo._id === id);
+    setTask({
+      _id: task._id,
+      username: task.username,
+      title: task.title,
+      description: task.description,
+      completed: false,
+    });
+  };
+
+  const EditTask = (id) => {
+    axios
+      .put("http://localhost:3000/goals/edit/" + id, task)
+      .then((result) => {
+        setTodos((Todos) =>
+          Todos.map((todo) => (todo._id === id ? { ...todo, ...task } : todo))
+        );
+        console.log("Edited goal");
+        setTask({
+          username: "",
+          title: "",
+          description: "",
+          dedline: "",
+          completed: false,
+        });
+      })
+      .catch((e) => console.log(e));
+  };
+
   const DeleteHandler = (id) => {
     axios
       .delete("http://localhost:3000/goals/" + id)
@@ -79,6 +109,7 @@ function App() {
   return (
     <>
       <h1 className="Heading">YearGoals</h1>
+      {/* form */}
       <div className="form">
         <div className="input-group">
           <label className="input-label">Username:</label>
@@ -131,11 +162,14 @@ function App() {
           />
         </div>
 
-        <button onClick={CreateTask} className="submit-button">
-          Add Goal
+        <button
+          onClick={() => (task._id ? EditTask(task._id) : CreateTask())}
+          className="submit-button"
+        >
+          {`${task._id ? "Edit Goal" : "Add Goal"}`}
         </button>
       </div>
-
+      {/* goals */}
       <div className="todo-list">
         {todos.length === 0 ? (
           <div className="no-records">
@@ -149,8 +183,12 @@ function App() {
             >
               <div className="todo-detail title">{todo.title}</div>
               <div className="todo-detail description">{todo.description}</div>
-              <div className="todo-detail addedon">Added on: {todo.addedon}</div>
-              <div className="todo-detail dedline">Deadline: {todo.dedline}</div>
+              <div className="todo-detail addedon">
+                Added on: {todo.addedon}
+              </div>
+              <div className="todo-detail dedline">
+                Deadline: {todo.dedline}
+              </div>
               <div className="todo-detail username">{todo.username}</div>
               <div className="todo-actions">
                 <button
@@ -161,7 +199,7 @@ function App() {
                 >
                   {`${todo.completed ? "Mark InComplete" : "Completed"}`}
                 </button>
-                <button>Edit</button>
+                <button className="edit-button" onClick={() => EditHandler(todo._id)}>Edit</button>
                 <button
                   className="delete-button"
                   onClick={() => DeleteHandler(todo._id)}
@@ -173,7 +211,7 @@ function App() {
           ))
         )}
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 }

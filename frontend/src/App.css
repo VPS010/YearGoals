@@ -14,7 +14,8 @@
   justify-content: center;
   width: 100%;
   max-width: 25%;
-  margin: 0 auto;
+  margin: auto;
+  margin-bottom: 20px;
   padding: 20px;
   background-color: #ffffff;
   border-radius: 8px;
@@ -106,11 +107,14 @@
   color: #34495e;
 }
 
-.todo-detail.addedon,
-.todo-detail.dedline {
+.todo-detail.addedon{
   font-size: 15px;
   font-weight: 600;
-  font-style: italic;
+  color: #7f8c8d; 
+}
+.todo-detail.dedline {
+  font-size: 15px;
+  font-weight: 750;
   color: #7f8c8d; 
 }
 
@@ -127,6 +131,23 @@
   justify-content: space-between;
   margin-top: 10px;
 }
+
+
+.edit-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.edit-button:hover {
+  background-color: #45a049;
+}
+
 
 .completed-button,
 .delete-button {
