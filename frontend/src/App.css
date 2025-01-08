@@ -279,3 +279,11 @@ body {
   font-size: 1rem;
   margin-top: 10px;
 }
+
+
+.Loading{
+  width: 150px;
+  height: 150px;
+  margin: 20px;
+  display:inline-block;
+}
