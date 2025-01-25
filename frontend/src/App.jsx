@@ -9,7 +9,7 @@ function App() {
     username: "",
     title: "",
     description: "",
-    dedline: "", 
+    dedline: "",
     completed: false,
   });
   const targetRef = useRef(null);
@@ -25,7 +25,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("https://year-goals-lime.vercel.app/goals/")
+      .get("http://localhost:3000/goals/")
       .then((result) => setTodos(result.data))
       .catch((e) => console.log(e));
   }, []);
@@ -36,7 +36,7 @@ function App() {
       return;
     }
     axios
-      .post("https://year-goals-lime.vercel.app/goals/add", task)
+      .post("http://localhost:3000/goals/add", task)
       .then((result) => {
         setTodos((todos) => [...todos, result.data]);
         console.log("Data sent");
@@ -55,7 +55,7 @@ function App() {
 
   const DoneHandler = (id) => {
     axios
-      .put("https://year-goals-lime.vercel.app/goals/" + id)
+      .put("http://localhost:3000/goals/" + id)
       .then((result) => {
         setTodos((prevTodos) =>
           prevTodos.map((todo) =>
@@ -85,7 +85,7 @@ function App() {
       return;
     }
     axios
-      .put("https://year-goals-lime.vercel.app/goals/edit/" + id, task)
+      .put("http://localhost:3000/goals/edit/" + id, task)
       .then((result) => {
         setTodos((Todos) =>
           Todos.map((todo) => (todo._id === id ? { ...todo, ...task } : todo))
@@ -104,7 +104,7 @@ function App() {
 
   const DeleteHandler = (id) => {
     axios
-      .delete("https://year-goals-lime.vercel.app/goals/" + id)
+      .delete("http://localhost:3000/goals/" + id)
       .then(() => {
         setTodos((prevTodos) => prevTodos.filter((todo) => todo._id !== id));
         console.log("Deleted");
